@@ -35,12 +35,26 @@
 			"match": "\\b\\d+(\\.\\d+)?\\b"
 		},
 		"embedded-cxsql": {
-			"contentName": "meta.embedded.block.cxsql",
-			"begin": "\\bsql\\s*=\\s*(?:(?:runserver|runclient|runstatic)\\s*\\(\\s*)?([\"'])",
-			"end": "\\1",
 			"patterns": [
 				{
-					"include": "source.cxsql"
+					"contentName": "meta.embedded.block.cxsql",
+					"begin": "\\bsql\\s*=\\s*(?:runserver|runclient|runstatic)\\s*\\(\\s*([\"'])",
+					"end": "\\1\\s*\\)",
+					"patterns": [
+						{
+							"include": "source.cxsql"
+						}
+					]
+				},
+				{
+					"contentName": "meta.embedded.block.cxsql",
+					"begin": "\\bsql\\s*=\\s*([\"'])",
+					"end": "\\1",
+					"patterns": [
+						{
+							"include": "source.cxsql"
+						}
+					]
 				}
 			]
 		},

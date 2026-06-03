@@ -37,20 +37,13 @@
 		"embedded-cxsql": {
 			"patterns": [
 				{
-					"contentName": "meta.embedded.block.cxsql",
-					"begin": "\\b\\w*sql\\s*=\\s*(runserver|runclient|runstatic)\\s*\\(\\s*([\"'])",
+					"begin": "\\b\\w*sql\\s*=\\s*(runserver|runclient|runstatic)\\s*\\(",
 					"beginCaptures": {
-						"1": {"name": "entity.name.function.centrallix"},
-						"2": {"name": "punctuation.definition.string.begin"}
+						"1": {"name": "entity.name.function.centrallix"}
 					},
-					"end": "(\\2)\\s*\\)",
-					"endCaptures": {
-						"1": {"name": "punctuation.definition.string.end"}
-					},
+					"end": "\\)",
 					"patterns": [
-						{
-							"include": "source.cxsql"
-						}
+						{"include": "#dynamic-sql"}
 					]
 				},
 				{
@@ -69,6 +62,36 @@
 						}
 					]
 				}
+			]
+		},
+		"dynamic-sql": {
+			"patterns": [
+				{
+					"contentName": "meta.embedded.block.cxsql",
+					"begin": "([\"'])",
+					"beginCaptures": {
+						"1": {"name": "punctuation.definition.string.begin"}
+					},
+					"end": "(\\1)",
+					"endCaptures": {
+						"1": {"name": "punctuation.definition.string.end"}
+					},
+					"patterns": [
+						{"include": "source.cxsql"}
+					]
+				},
+				{
+					"contentName": "meta.embedded.block.cxsql-parentheses",
+					"begin": "\\(",
+					"end": "\\)",
+					"patterns": [
+						{"include": "#dynamic-sql"}
+					]
+				},
+				{"include": "#functions"},
+				{"include": "#variable-keywords"},
+				{"include": "#numbers"},
+				{"include": "#comments"}
 			]
 		},
 		"strings": {

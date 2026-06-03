@@ -40,9 +40,13 @@
 					"contentName": "meta.embedded.block.cxsql",
 					"begin": "\\bsql\\s*=\\s*(runserver|runclient|runstatic)\\s*\\(\\s*([\"'])",
 					"beginCaptures": {
-						"1": {"name": "entity.name.function.centrallix"}
+						"1": {"name": "entity.name.function.centrallix"},
+						"2": {"name": "punctuation.definition.string.begin"}
 					},
-					"end": "\\2\\s*\\)",
+					"end": "(\\2)\\s*\\)",
+					"endCaptures": {
+						"1": {"name": "punctuation.definition.string.end"}
+					},
 					"patterns": [
 						{
 							"include": "source.cxsql"
@@ -52,7 +56,13 @@
 				{
 					"contentName": "meta.embedded.block.cxsql",
 					"begin": "\\bsql\\s*=\\s*([\"'])",
+					"beginCaptures": {
+						"1": {"name": "punctuation.definition.string.begin"}
+					},
 					"end": "\\1",
+					"endCaptures": {
+						"0": {"name": "punctuation.definition.string.end"}
+					},
 					"patterns": [
 						{
 							"include": "source.cxsql"

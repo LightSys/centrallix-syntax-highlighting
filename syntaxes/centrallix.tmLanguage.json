@@ -38,8 +38,11 @@
 			"patterns": [
 				{
 					"contentName": "meta.embedded.block.cxsql",
-					"begin": "\\bsql\\s*=\\s*(?:runserver|runclient|runstatic)\\s*\\(\\s*([\"'])",
-					"end": "\\1\\s*\\)",
+					"begin": "\\bsql\\s*=\\s*(runserver|runclient|runstatic)\\s*\\(\\s*([\"'])",
+					"beginCaptures": {
+						"1": {"name": "entity.name.function.centrallix"}
+					},
+					"end": "\\2\\s*\\)",
 					"patterns": [
 						{
 							"include": "source.cxsql"

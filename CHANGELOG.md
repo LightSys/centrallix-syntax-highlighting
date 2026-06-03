@@ -9,7 +9,6 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Fixed
 - CxSQL embedded highlighting now detects `sql` attributes wrapped in `runserver()`, `runclient()`, or `runstatic()`, including concatenated string expressions inside the wrapper.
 - CxSQL embedded highlighting now works with single-quoted as well as double-quoted strings.
-- Added word boundary check to prevent false matches on attributes like `preview_sql`.
 
 ## [1.0.0] - 2021-06-11
 

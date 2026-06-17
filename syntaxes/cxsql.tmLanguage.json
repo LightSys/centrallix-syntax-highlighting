@@ -122,7 +122,7 @@
 			"name": "constant.numeric.cxsql"
 		},
 		{
-			"match": "(?i:\\b(select(\\s+distinct)?|insert\\s+(ignore\\s+)?into|update|delete|from|set|where|group\\sby|or|like|and|union(\\s+all)?|having|order\\sby|limit|(inner|cross)\\s+join|join|straight_join|(left|right)(\\s+outer)?\\s+join|natural(\\s+(left|right)(\\s+outer)?)?\\s+join)\\b)",
+			"match": "(?i:\\b(select(\\s+distinct)?|insert\\s+(ignore\\s+)?into|update|delete|from|set|where|group\\sby|or|like|and|union(\\s+all)?|having|order\\sby|default|limit|(inner|cross)\\s+join|join|straight_join|(left|right)(\\s+outer)?\\s+join|natural(\\s+(left|right)(\\s+outer)?)?\\s+join)\\b)",
 			"name": "keyword.other.DML.cxsql"
 		},
 		{
